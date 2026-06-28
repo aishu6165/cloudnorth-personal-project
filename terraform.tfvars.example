@@ -1,0 +1,24 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# terraform.tfvars is gitignored — never commit actual values.
+
+# Environment
+environment = "dev"
+
+# VPC
+vpc_cidr = "10.0.0.0/16"
+
+# Availability zones
+availability_zone_1a = "us-east-1a"
+availability_zone_1b = "us-east-1b"
+
+# Public subnets
+public_subnet_cidr_1a = "10.0.1.0/24"
+public_subnet_cidr_1b = "10.0.2.0/24"
+
+# Private app subnets
+private_app_subnet_cidr_1a = "10.0.10.0/24"
+private_app_subnet_cidr_1b = "10.0.11.0/24"
+
+# Private data subnets
+private_data_subnet_cidr_1a = "10.0.20.0/24"
+private_data_subnet_cidr_1b = "10.0.21.0/24"

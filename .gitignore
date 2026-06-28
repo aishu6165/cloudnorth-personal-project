@@ -1,0 +1,22 @@
+# Terraform local state — never commit, using S3 backend
+*.tfstate
+*.tfstate.backup
+
+# Terraform working directory — auto-generated on terraform init
+.terraform/
+
+# Variable values — may contain sensitive data (passwords, keys)
+*.tfvars
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Override files (local developer overrides)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform plan output (can contain sensitive values)
+*.tfplan
