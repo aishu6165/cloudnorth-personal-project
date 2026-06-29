@@ -59,6 +59,16 @@ resource "aws_security_group_rule" "alb_ingress_https" {
   security_group_id = aws_security_group.alb.id
 }
 
+# Allow internet → ALB on port 8080 (direct app access, dev only)
+resource "aws_security_group_rule" "alb_ingress_8080" {
+  type              = "ingress"
+  from_port         = 8080
+  to_port           = 8080
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.alb.id
+}
+
 # Allow ALB → app servers on port 8080
 resource "aws_security_group_rule" "alb_egress_to_app" {
   type                     = "egress"

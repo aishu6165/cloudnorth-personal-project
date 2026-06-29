@@ -34,3 +34,8 @@ output "private_data_subnet_1b_id" {
   description = "ID of private data subnet 1b"
   value       = aws_subnet.private-data-1b.id
 }
+
+output "private_route_table_id" {
+  description = "Private route table ID, used by S3 gateway endpoint"
+  value       = aws_route_table.private.id
+}

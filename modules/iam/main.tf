@@ -56,9 +56,13 @@ resource "aws_iam_role_policy" "ecs_execution_secrets" {
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
-      Effect   = "Allow"
-      Action   = "secretsmanager:GetSecretValue"
-      Resource = "arn:aws:secretsmanager:us-east-1:*:secret:cloudnorth/*"
+      Effect = "Allow"
+      Action = "secretsmanager:GetSecretValue"
+      Resource = [
+        "arn:aws:secretsmanager:us-east-1:*:secret:cloudnorth/*",
+        # RDS managed secrets use the rds! prefix when manage_master_user_password = true
+        "arn:aws:secretsmanager:us-east-1:*:secret:rds!*"
+      ]
     }]
   })
 }
