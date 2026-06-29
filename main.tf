@@ -14,9 +14,9 @@ module "networking" {
   private_data_subnet_cidr_1b = var.private_data_subnet_cidr_1b
 }
 
-# module "security_groups" {
-#   source = "./modules/security_groups"
+module "security_groups" {
+  source = "./modules/security_groups"
 
-#   vpc_id      = module.networking.vpc_id # ← output from networking
-#   environment = var.environment
-# }
+  vpc_id      = module.networking.vpc_id # ← output from networking
+  environment = var.environment
+}
