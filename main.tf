@@ -30,3 +30,8 @@ module "aws_iam" {
   source = "./modules/iam"
   environment = var.environment
 }
+
+module "aws_s3_bucket" {
+  source = "./modules/s3"
+  environment = var.environment
+}
