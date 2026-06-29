@@ -25,3 +25,8 @@ module "aws_ecr_repository" {
   source = "./modules/ecr"
   environment = var.environment
 }
+
+module "aws_iam" {
+  source = "./modules/iam"
+  environment = var.environment
+}
