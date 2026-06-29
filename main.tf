@@ -45,3 +45,13 @@ module "database" {
   private_data_subnet_1b_id = module.networking.private_data_subnet_1b_id
   db_security_group_id      = module.security_groups.db_sg_id
 }
+
+module "alb" {
+  source               = "./modules/alb"
+  environment          = var.environment
+  vpc_id               = module.networking.vpc_id
+  alb_sg_id            = module.security_groups.alb_sg_id
+  public_subnet_1a_id  = module.networking.public_subnet_1a_id
+  public_subnet_1b_id  = module.networking.public_subnet_1b_id
+  alb_logs_bucket_name = module.aws_s3_bucket.alb_logs_bucket_name
+}

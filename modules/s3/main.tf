@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "app_assets_s3" {
   }
 }
 
-# Encryption — both buckets
+# Encryption,both buckets
 resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs" {
   bucket = aws_s3_bucket.alb_logs_s3.id
   rule {
@@ -37,7 +37,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "app_assets" {
   }
 }
 
-# Block public access — both buckets
+# Block public access,both buckets
 resource "aws_s3_bucket_public_access_block" "alb_logs" {
   bucket                  = aws_s3_bucket.alb_logs_s3.id
   block_public_acls       = true
@@ -54,7 +54,7 @@ resource "aws_s3_bucket_public_access_block" "app_assets" {
   restrict_public_buckets = true
 }
 
-# Lifecycle rule — ALB logs bucket, delete after 90 days
+# Lifecycle rule,ALB logs bucket, delete after 90 days
 resource "aws_s3_bucket_lifecycle_configuration" "alb_logs" {
   bucket = aws_s3_bucket.alb_logs_s3.id
 
@@ -68,7 +68,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "alb_logs" {
   }
 }
 
-# Bucket policy — allows ALB to write access logs
+# Bucket policy,allows ALB to write access logs
 resource "aws_s3_bucket_policy" "alb_logs" {
   bucket = aws_s3_bucket.alb_logs_s3.id
 

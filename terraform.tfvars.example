@@ -1,5 +1,5 @@
 # Copy this file to terraform.tfvars and fill in your values.
-# terraform.tfvars is gitignored — never commit actual values.
+# terraform.tfvars is gitignored,never commit actual values.
 
 # Environment
 environment = "dev"

@@ -10,7 +10,7 @@ resource "aws_vpc" "main" {
   }
 }
 
-# Public subnets — different CIDRs, different AZs
+# Public subnets,different CIDRs, different AZs
 resource "aws_subnet" "public-1a" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr_1a
@@ -96,7 +96,7 @@ resource "aws_internet_gateway" "main" {
   }
 }
 
-# Public route table — routes to IGW
+# Public route table,routes to IGW
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
@@ -152,7 +152,7 @@ resource "aws_route_table_association" "private-data-1b" {
   route_table_id = aws_route_table.private.id
 }
 
-# NAT GATEWAY — intentionally omitted  Cost reason: ~$32/month — omitted for portfolio demo
+# NAT GATEWAY,intentionally omitted  Cost reason: ~$32/month,omitted for portfolio demo
 # In production this would be required so ECS tasks in private subnets can pull images from ECR and
 # reach AWS services like Secrets Manager
 

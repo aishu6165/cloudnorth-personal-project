@@ -1,14 +1,14 @@
 # CloudNorth Infrastructure
 
-Terraform infrastructure for the CloudNorth e-commerce platform hosted on AWS. This repo covers everything from networking to compute, database, and observability — built and deployed block by block.
+Terraform infrastructure for the CloudNorth e-commerce platform hosted on AWS. This repo covers everything from networking to compute, database, and observability,built and deployed block by block.
 
 ## What This Builds
 
-A multi-tier AWS architecture in us-east-1 across two availability zones. The network is split into three layers — public subnets for the load balancer, private app subnets for ECS Fargate containers, and private data subnets for the RDS database. Nothing in the private layers is directly reachable from the internet.
+A multi-tier AWS architecture in us-east-1 across two availability zones. The network is split into three layers,public subnets for the load balancer, private app subnets for ECS Fargate containers, and private data subnets for the RDS database. Nothing in the private layers is directly reachable from the internet.
 
 ## Prerequisites
 
-You need Terraform 1.7 or higher, an AWS account with a configured default profile, and the AWS CLI installed. The S3 state backend and DynamoDB lock table must exist before running any Terraform commands — see the bootstrap setup below.
+You need Terraform 1.7 or higher, an AWS account with a configured default profile, and the AWS CLI installed. The S3 state backend and DynamoDB lock table must exist before running any Terraform commands,see the bootstrap setup below.
 
 ## State Backend
 
@@ -34,7 +34,7 @@ terraform apply
 
 ```
 cloudnorth-project/
-├── main.tf               # Root module — wires all modules together
+├── main.tf               # Root module,wires all modules together
 ├── providers.tf          # AWS provider and S3 backend config
 ├── variables.tf          # Root variable declarations
 ├── terraform.tfvars      # Your local variable values (gitignored)

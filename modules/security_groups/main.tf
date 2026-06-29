@@ -1,4 +1,4 @@
-# TIER 1 —  Load Balancer
+# TIER 1, Load Balancer
 
 resource "aws_security_group" "alb" {
   name        =  "alb-sg"
@@ -12,7 +12,7 @@ resource "aws_security_group" "alb" {
   }
 }
 
-# Tier 2 — Application servers (private app subnet)
+# Tier 2,Application servers (private app subnet)
 resource "aws_security_group" "app" {
   name        = "app-sg"
   description = "Security group for application servers"
@@ -24,7 +24,7 @@ resource "aws_security_group" "app" {
   }
 }
 
-# Tier 3 — Database (private data subnet)
+# Tier 3,Database (private data subnet)
 resource "aws_security_group" "db" {
   name        = "db-sg"
   description = "Security group for database"
