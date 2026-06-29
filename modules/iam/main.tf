@@ -62,3 +62,17 @@ resource "aws_iam_role_policy" "ecs_execution_secrets" {
     }]
   })
 }
+
+resource "aws_iam_role_policy" "ecs_task_s3" {
+  name = "s3-assets-read"
+  role = aws_iam_role.ecs_task.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = ["s3:GetObject"]
+      Resource = "${var.app_assets_bucket_arn}/*"
+    }]
+  })
+}

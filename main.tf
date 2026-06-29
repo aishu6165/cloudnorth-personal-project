@@ -29,6 +29,7 @@ module "aws_ecr_repository" {
 module "aws_iam" {
   source = "./modules/iam"
   environment = var.environment
+  app_assets_bucket_arn = module.aws_s3_bucket.app_assets_bucket_arn
 }
 
 module "aws_s3_bucket" {
