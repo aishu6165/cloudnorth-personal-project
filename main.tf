@@ -20,3 +20,7 @@ module "security_groups" {
   vpc_id      = module.networking.vpc_id # ← output from networking
   environment = var.environment
 }
+
+module "aws_ecr_repository" {
+  source = "./modules/ecr"
+}
