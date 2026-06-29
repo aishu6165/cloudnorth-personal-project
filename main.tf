@@ -23,4 +23,5 @@ module "security_groups" {
 
 module "aws_ecr_repository" {
   source = "./modules/ecr"
+  environment = var.environment
 }
