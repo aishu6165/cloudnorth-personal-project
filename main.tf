@@ -33,6 +33,15 @@ module "aws_iam" {
 }
 
 module "aws_s3_bucket" {
-  source = "./modules/s3"
+  source      = "./modules/s3"
   environment = var.environment
+}
+
+module "database" {
+  source                    = "./modules/database"
+  environment               = var.environment
+  db_instance_class         = "db.t3.micro"
+  private_data_subnet_1a_id = module.networking.private_data_subnet_1a_id
+  private_data_subnet_1b_id = module.networking.private_data_subnet_1b_id
+  db_security_group_id      = module.security_groups.db_sg_id
 }
