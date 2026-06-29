@@ -99,12 +99,11 @@ resource "aws_security_group_rule" "db_ingress_from_app" {
   security_group_id        = aws_security_group.db.id
 }
 
-# Allow database → outbound 
-resource "aws_security_group_rule" "db_egress" {
+resource "aws_security_group_rule" "app_egress_https" {
   type              = "egress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "-1"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.db.id
+  security_group_id = aws_security_group.app.id
 }
